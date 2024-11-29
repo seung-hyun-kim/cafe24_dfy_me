@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="one.dfy.cafe24.ygplus.buffz.mapper.BuffzMapper">
+    <select id="userList" parameterType="map" resultType="one.dfy.cafe24.ygplus.buffz.dto.UserInfoDto">
+        SELECT * FROM tbl_user
+    </select>
+
+    <insert id="insertUser" parameterType="one.dfy.cafe24.ygplus.buffz.dto.UserInfoDto">
+        INSERT INTO tbl_user (member_id, user_ip, use_yn, ordered_date)
+        VALUES (#{memberId}, #{userIp}, #{useYn}, #{orderedDate})
+    </insert>
+
+
+</mapper>

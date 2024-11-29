@@ -1,0 +1,21 @@
+{
+  "buyer": {
+    "shop_no": 1,
+    "member_id": "master13924",
+    "member_group_no": 1,
+    "name": "Floyd Mayweather",
+    "names_furigana": "John Doe",
+    "email": "sample@gmail.com",
+    "phone": "02-0000-0000",
+    "cellphone": "010-0000-0000",
+    "customer_notification": "Customer Notify Sample",
+    "updated_date": "2018-09-03T17:20:49+09:00",
+    "user_id": "sampleid",
+    "user_name": "John Doe",
+    "company_name": "sample business name",
+    "company_registration_no": "123-45-67890",
+    "buyer_zipcode": "01234",
+    "buyer_address1": "sample street New York",
+    "buyer_address2": "34"
+  }
+}

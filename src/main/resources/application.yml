@@ -1,0 +1,49 @@
+server:
+  port: 443
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: dfydfy
+    key-store-type: PKCS12
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+  config:
+    activate:
+      on-profile: local
+    import:
+      - optional:file:.env.local[.properties]
+  application:
+    name: batch-dfy
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://team-database.cl0wyooo8xgk.us-east-2.rds.amazonaws.com:3306/ygplus #${DB_URL}
+    username: root                                              #ENC(${DB_USER_NAME})
+    password: dfy.co.kr                                         #ENC(${DB_USER_PASSWORD})
+  # Spring Batch 설정
+  batch:
+    jdbc:
+      initialize-schema: never
+    job:
+      incrementer:
+        type: "org.springframework.batch.core.launch.support.RunIdIncrementer"
+      enabled: true
+  # MyBatis 설정 정보
+  mybatis:
+    configuration:
+      configuration:
+      log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+      map-underscore-to-camel-case: true
+      config-location: classpath:mybatis-config.xml
+      mapper-locations: classpath:mapper/*.xml
+  # 로그 레벨 설정
+  logging:
+    level:
+      org:
+        apache:
+          ibatis: DEBUG                     # MyBatis 관련 로그 레벨
+      jdbc:
+        sql: DEBUG                           # SQL 쿼리 로그 레벨
+        result: DEBUG                        # 결과 로그 레벨
+        connection: DEBUG                    # JDBC 연결 로그 레벨
